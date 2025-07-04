@@ -1,0 +1,13 @@
+/* Dark Mode */
+body.dark .small-text,
+body.dark .adoption-steps__item,
+body.dark .skills__name{
+  color: #f5f0e1;
+}
+
+/* Light Mode  */
+body.light .small-text,
+body.light .adoption-steps__item,
+body.light .skills__name{
+  color: #333;
+}

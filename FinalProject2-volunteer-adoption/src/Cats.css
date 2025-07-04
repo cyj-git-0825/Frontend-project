@@ -1,0 +1,264 @@
+.cats {
+    padding: 2rem 0;
+}
+
+.cats__container {
+    display: flex;
+    flex-direction: column;
+    
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    margin-bottom: 6em;
+}
+
+.cats__titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin-bottom: 2rem;
+}
+
+.cats__title {
+    margin-bottom: 0.5rem;
+    
+    font-size: 2.5rem;
+    text-align: center;
+    
+    color: #e7a75c;
+}
+
+.cats__subtitle {
+    margin-bottom: 2rem;
+    
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.filters__title {
+    margin-right: 0.5rem;
+    
+    font-weight: bold;
+}
+
+.filters__list {
+    display: inline-flex;
+    justify-content: center;
+    
+    padding: 0;
+    
+    list-style-type: none;
+}
+
+.filters__item {
+    position: relative;
+    
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+    
+    cursor: pointer;
+}
+
+.filters__item.active {
+    font-weight: 800;
+    
+    background-color: #e7a75c;
+    color: white;
+}
+
+.cats__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    gap: 2rem;
+}
+
+.cat-card {
+    display: flex;
+    flex-direction: column;
+    
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    
+    background-color: #f9f5ea;
+}
+
+.cat-card__image {
+    height: 220px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+    background-size: cover;
+    background-position: center;
+}
+
+.cat-card__content {
+    display: flex;
+    flex-direction: column;
+    
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.cat-card__header {
+    display: flex;
+    flex-direction: column;
+    
+    margin-bottom: 1rem;
+}
+
+.cat-card__name {
+    margin-bottom: 0.5rem;
+    
+    font-size: 1.6rem;
+    font-weight: 700;
+    
+    color: #a7765c;
+}
+
+.cat-card__info {
+    display: flex;
+    
+    gap: 0.5rem;
+}
+
+.cat-card__info-item {
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    
+    font-size: 1rem;
+    
+    background-color: rgba(231, 167, 92, 0.15);
+}
+
+.cat-card__description {
+    margin-bottom: 1.25rem;
+    
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.cat-card__details {
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+    
+    list-style-type: none;
+}
+
+.cat-card__detail-item {
+    display: flex;
+    
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+}
+
+.cat-card__label {
+    margin-right: 0.5rem;
+    
+    font-weight: 600;
+}
+
+.cat-card__footer {
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: auto;
+}
+
+.cat-card__update {
+    margin-bottom: 1rem;
+    
+    font-size: 1rem;
+    font-style: italic;
+    
+    color: #777;
+}
+
+.cat-card__adopt-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 25px;
+
+    cursor: pointer;
+    
+    font-weight: 600;
+    font-size: 1rem;
+    
+    color: white;
+    background-color: #e7a75c;
+}
+
+.cat-card__adopt-icon {
+    width: 1.3rem;
+    margin-right: 0.5rem;
+}
+
+body.dark .cat-card {
+    background-color: #3a2826;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .cat-card__name {
+    color: #e7a75c;
+}
+
+
+body.dark .cat-card__update {
+    color: #ddd;
+}
+
+body.dark .cat-card__adopt-button {
+    color: #2a1816;
+    background-color: #e7a75c;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .cats__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cats__titles {
+        margin-bottom: 1rem;
+    }
+    
+    .cats__title {
+        font-size: 2rem;
+    }
+
+    .cats__subtitle {
+        padding: 1rem;
+        
+        font-size: 1.2rem;
+    }
+
+    .filters {
+        flex-wrap: wrap;
+        
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+    }
+    
+    .cats__content {
+        grid-template-columns: 1fr;
+    }
+}

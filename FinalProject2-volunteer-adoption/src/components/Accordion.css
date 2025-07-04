@@ -1,0 +1,146 @@
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    margin-bottom: 1rem;
+}
+
+.accordion__button {
+    display: flex;
+    position: relative;
+
+    border: none;
+
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+   
+    transition: background-color 0.3s ease;
+}
+
+.accordion__button-hover {
+    background-color: rgba(231, 167, 92, 0.1);
+}
+
+.accordion__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.accordion__icon.open {
+    transform: rotate(180deg);
+}
+
+.accordion__content {
+    display: block;
+
+    max-height: 0;
+    padding: 0 1rem;
+}
+
+.accordion__content.open {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+/* Dark mode styles */
+body.dark .accordion {
+    border-color: #4a3836;
+}
+
+body.dark .accordion__button {
+    color: #ffecb3;
+}
+
+body.dark .accordion__button-hover {
+    background-color: #4a3836;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .accordion__icon,
+    .accordion__content,
+    .accordion__button {
+        transition: none;
+    }
+}
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    margin-bottom: 1rem;
+}
+
+.accordion__button {
+    display: flex;
+
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    
+    transition: background-color 0.3s ease;
+}
+
+.accordion__button:hover {
+    background-color: rgba(231, 167, 92, 0.1);
+}
+
+.accordion__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.accordion__icon.open {
+    transform: rotate(180deg);
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1rem;
+}
+
+.accordion__content.open {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+/* Dark mode styles */
+body.dark .accordion {
+    border-color: #6e4f42; 
+    background-color: #4a3836; 
+}
+
+body.dark .accordion__button {
+    background-color: #4a3836;
+    color: #ffecb3; 
+}
+
+body.dark .accordion__button:hover {
+    background-color: #6e4f42; 
+    color: #ffecb3;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .accordion__icon,
+    .accordion__content,
+    .accordion__button {
+        transition: none;
+    }
+}

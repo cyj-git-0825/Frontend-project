@@ -1,0 +1,26 @@
+# Image Licenses for This Project
+
+## Icons
+- Projectname: yjProject
+  License: fonts.google License Copyright
+- Images : 
+icons-chevron-down.png   
+icons-email.png  
+icons-location.png
+icons-moon.png
+icons-sun.png 
+icons-phone.png
+paw-print.png
+
+## Other Images
+-  Projectname: yjProject
+  License:  Unsplash License Copyright
+  cat-hero.jpg - https://unsplash.com/photos/cat-image-id
+  cat1.jpg - https://unsplash.com/photos/cat-image-id
+  cat2.jpg - https://unsplash.com/photos/cat-image-id
+  cat3.jpg - https://unsplash.com/photos/cat-image-id
+  cat4.jpg - https://unsplash.com/photos/cat-image-id
+  cat5.jpg - https://unsplash.com/photos/cat-image-id
+  cat6.jpg - https://unsplash.com/photos/cat-image-id
+
+
