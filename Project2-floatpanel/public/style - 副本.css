@@ -1,0 +1,216 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.2;
+	font-size: 1rem;
+	width: 100%;
+	margin:0;
+	background-color: burlywood;
+}
+
+/* ------header------ */
+.header {
+	/*  (header-info + nav) */
+	display: flex;
+	flex-direction: column;
+}
+
+.skiplink {
+	/* 视觉隐藏但保持可访问性 */
+	position: absolute;
+	top: -1000px;  /* 把它移出屏幕 */
+ 	left: 50%;
+}
+
+.skiplink:focus {
+    top: 10px;  /* 选中时，回到屏幕上 */
+}
+
+.header-info {
+	/*子1 (logo-container + H1) */
+	display: flex;
+	align-items: center;
+}
+
+.logo-container {
+	/* 子1.1  img + span */
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-container img {
+	border: 10px solid #fcfcaf;
+
+	border-radius: 50%;
+
+	width: 100px;
+	height: 100px;
+}
+
+.header-info h1 {
+	/* 子1.2  */
+	flex: 1; /* 让 h1 占满除logo-container以外header-info剩余空间 */
+	text-align: center; /* 让 h1 的文字居中 */
+}
+
+.nav {
+	/* 子2 */
+	position: relative; /* 父相 */
+}
+
+/* 隐藏汉堡按钮，默认显示菜单 */
+.hamburger-button {
+	display: none;
+	
+}
+
+.menu {
+	display: flex;
+	justify-content: space-around;
+	list-style-type: none;
+}
+
+.menu a {
+	padding: 0.5rem;
+}
+
+.menu a:hover {
+	color: white; /* 文字颜色变化 */
+	background-color: dodgerblue; /* 背景色变化 */
+}
+
+
+/* -------------main----------- */
+.main {
+	background-color: papayawhip;
+	padding: 0.5rem;
+}
+
+.panel {
+	background: #eee;
+	margin: 0.5rem;
+  	padding: 0.5rem;
+	border: 1.5px solid black;
+}
+
+
+
+/* 默认图片大小 */
+.panel-text img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+  }
+  
+  /* 44rem 之前：panel-text 水平排列 */
+.panel-text {
+	display: flex;
+	gap: 1rem; /* 文字与图片的间距 */
+}
+  
+  /* panel1 让图片在右侧 */
+.panel1 .panel-text {
+	flex-direction: row-reverse;
+}
+  
+  /* panel2 让图片在左侧（默认 row） */
+.panel2 .panel-text {
+	flex-direction: row;
+}
+
+.text-group h2 {
+	max-width: calc(100% - 200px); /* 减去图片宽度和间距 */
+	text-align: center; /* 文字居中 */
+}
+
+.panel2 .text-group h2 {
+	max-width: calc(100% - 200px - 1rem); /* 扣掉图片宽度和间距 */
+	margin-left: auto; /* 让 h2 靠右，形成视觉居中 */
+	text-align: center;
+}
+
+
+
+
+/* footer */
+.footer-links {
+	display: flex;
+	justify-content: space-around;
+	padding: 0.5rem;
+	list-style-type: none;
+}
+
+.footer-links li a {
+	color: blue;
+}
+
+
+/* 媒体查询：当屏幕宽度小于 40rem 时 */
+@media (max-width: 44rem) {
+	/* 显示汉堡按钮 */
+	.hamburger-button {
+		display: block;
+	}
+
+	/* 隐藏菜单，初始状态下 */
+	.menu {
+		display: none;
+		flex-direction: column;
+		position: absolute; /* 子绝 */
+		right: 0; /* 从右向左扩展 */
+
+		padding: 0;
+
+		background-color: burlywood;
+	}
+	.menu li {
+		white-space: nowrap; /*确保文本不换行*/
+	}
+	.menu li a {
+		display: block; /* 让 a 占满 li */
+	}
+
+	/* 当菜单激活时添加一个类显示菜单 */
+	.menu.shown {
+		display: flex; /* .menu.shown的打开使得原来.menu没有的属性被添加，相同的属性被覆盖 */
+	}
+
+	/* 让nav与header-info并排 */
+	.header {
+		flex-direction: row;
+		justify-content: space-between; /* nav与header-info保持在左右两侧 */
+		align-items: center;
+	}
+	.header-info {
+		flex: 1; /* nav水平排列来占地方了，让 header-info 占满剩余空间 */
+	}
+
+	.panel-text {
+		display: block; /* 取消 flex */
+	}
+
+	.panel-text img {
+		width: 125px;
+		height: 125px;
+	}
+	
+
+  /* panel1 的图片改为右浮动 */
+  .panel1 .panel-text img {
+    float: right;
+    margin: 0 0 0.5rem 1rem; /* 左侧留间距 */
+  }
+
+  /* panel2 的图片保持左浮动 */
+  .panel2 .panel-text img {
+    float: left;
+    margin: 0 1rem 0.5rem 0; /* 右侧留间距 */
+  }
+
+
+	.footer-links {
+		flex-direction: column;
+	}
+}

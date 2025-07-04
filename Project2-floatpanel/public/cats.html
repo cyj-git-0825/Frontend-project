@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cats World</title>
+		<link rel="stylesheet" href="cards.css" />
+	</head>
+	<body>
+		<header class="header">
+			<a href="#main-content" class="skiplink">Skip to main content</a> <!-- 第一个可聚焦元素 -->
+			<div class="header-info">
+				<a href="index.html" class="logo-container">
+					<img src="logo.jpg" alt="A logo of a small blue golden shaded cat trying to clean herself."/>
+					<span>Skip to Home</span>
+				</a>
+				<h1>Cats</h1>
+			</div>
+			<nav class="nav">
+				<button class="hamburger-button" aria-label="Toggle menu">&#9776;</button>
+				<ul class="menu">
+					<li><a href="index.html"> Home </a></li>
+					<li><a href="https://www.petplace.com/article/category/pet-behavior-training">Famous Cats</a></li>
+					<li><a href="cats.html"> Cat Events </a></li>
+				</ul>
+			</nav>
+		</header>
+        <main class="main">
+            <section class="cards">
+                <div class="card">
+                    <h3>Jorts</h3>
+                    <img src="cat1.png" alt="A long-haired tabby proudly gazes at the camera against a green outdoor background." class="img">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla repellendus quam et odio dignissimos, in facilis deleniti tempora corporis accusantium molestias.<br><br>
+                        Amet eligendi officiis, <button class="subscribe">Subscribe</button> dicta laudantium quibusdam alias voluptate sapiente optio!</p>
+                </div>
+                <div class="card">
+                    <h3>Jean</h3>
+                    <img src="cats2.jpg" alt="A long-haired golden kitten lies on a wooden table, curiously looking up at something." class="img">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla repellendus quam et odio dignissimos, in facilis deleniti tempora corporis accusantium molestias.<br><br>
+                        Amet eligendi officiis, <button class="subscribe">Subscribe</button> dicta laudantium quibusdam alias voluptate sapiente optio!</p>
+                </div>
+                <div class="card">
+                    <h3>Maru</h3>
+                    <img src="cats3.png" alt="an adorable young blue-gold shaded kitten lies on the ground, eagerly waiting to play with humans." class="img">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br><br>Voluptatum nihil unde nobis libero, doloribus consequatur corrupti illo, quos saepe pariatur earum. <br><br>
+                        Amet eligendi officiis, <button class="subscribe">Subscribe</button> dicta laudantium quibusdam alias voluptate sapiente optio!</p>
+
+                </div>
+                <div class="card">
+                    <h3>Nyancat</h3>
+                    <img src="cats4.png" alt="A golden shaded kitten triumphantly This card captures her licking 
+                    her lips contentedly after enjoying a snack." class="img">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla repellendus quam et odio dignissimos, in facilis deleniti tempora corporis accusantium molestias.<br><br>
+                        Amet eligendi officiis, <button class="subscribe">Subscribe</button> dicta laudantium quibusdam alias voluptate sapiente optio!</p>
+                </div>
+                <div class="card">
+                    <h3>Grumpy Cat</h3>
+                    <img src="cats5.jpg" alt="An orange kitten sits in a box, staring intently into the distance with bright, focused eyes." class="img">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla repellendus quam et odio dignissimos, in facilis deleniti tempora corporis accusantium molestias.<br><br>
+                        Amet eligendi officiis, <button class="subscribe">Subscribe</button> dicta laudantium quibusdam alias voluptate sapiente optio!</p>
+                </div>
+                <div class="card">
+                    <h3>Lil Bub</h3>
+                    <img src="cats6.jpg" alt="A long-haired tabby kitten sits on a white staircase, proudly greeting the camera." class="img">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla repellendus quam et odio dignissimos, in facilis deleniti tempora corporis accusantium molestias.<br><br>
+                        Amet eligendi officiis, <button class="subscribe">Subscribe</button> dicta laudantium quibusdam alias voluptate sapiente optio!</p>
+                </div>
+            </section>
+            <dialog id="subscribeDialog">
+                <form id="subscribeForm" class="form" method="POST" action="/subscribe">
+                    <h4>Subscribe to the Latest Mews!</h4>
+                    <div class="form-group">
+                        <label for="email">Email  *Required</label>
+                        <input type="text" id="email">
+                        <span class="error email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm">Confirm Email  *Required</label>
+                        <input type="text" id="confirm">
+                        <span class="error confirm-error"></span>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="dialog-subscribeBtn">Subscribe</button>
+                        <button type="button" class="cancel">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+
+        </main>
+
+        <footer>
+			<ul class="footer-links">
+				<li><a href="https://foha.org/privacy-policy/">Privacy Policy</a></li>
+				<li><a href="https://foha.org/privacy-policy/">Work for Us</a></li>
+				<li><a href="https://foha.org/privacy-policy/">Contact us</a></li>
+				<li><a href="https://foha.org/privacy-policy/">Social Medias</a></li>
+			</ul>
+		</footer>
+		<script src="cards.js"></script>
+	</body>
+</html>

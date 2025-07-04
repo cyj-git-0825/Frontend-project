@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css\register_style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-info">
+            <a href="index.html" class="logo-container">
+                <img height="120" src="logo.jpg" alt="A logo of a small blue golden shaded cat trying to clean herself.">
+                <span>Click to Home</span>
+            </a>
+            <h1>Register</h1>
+        </div>
+
+        <nav class="nav">
+            <ul class="menu">
+                <li class="menu-option">
+                    <button class="menu-button" type="button">Menu</button>  
+                    <ul class="submenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About </a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </li>
+                <li class="menu-option">
+                    <button class="menu-button" type="button">External Links</button>
+                    <ul class="submenu">
+                        <li><a href="https://www.allkindabilene.org/events-WIdZ1" target="_blank">  Upcoming Events   </a></li>
+                            <li><a href="https://www.allkindabilene.org/owner-services" target="_blank">  Pet Services   </a></li>
+                            <li><a href="https://www.allkindabilene.org/partners" target="_blank">  Members   </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Left Side: Foster Info (Styled as a Card) -->
+        <div class="foster-info-card">
+            <h2>Before Fostering a Dog or Cat</h2>
+            <p>Fostering a pet is a serious responsibility. Please ensure that you are fully prepared before making a decision. Consider the following:</p>
+            <ul>
+                <li><strong>Commitment:</strong> Pets require daily attention, training, and love.</li>
+                <li><strong>Financial Responsibility:</strong> Food, vet visits, and emergency care can be costly.</li>
+                <li><strong>Living Space:</strong> Ensure your home allows pets and is safe for them.</li>
+                <li><strong>Time Dedication:</strong> Do you have enough time to properly care for a pet?</li>
+                <li><strong>Family/Roommates:</strong> All household members should agree to fostering a pet.</li>
+                <li><strong>Emergency Plan:</strong> Be ready for unexpected pet-related situations.</li>
+            </ul>
+        </div>
+    
+        <!-- Right Side: Registration Form -->
+        <div class="form-container">          <!--/*把我们右侧整个表单装进大容器起来 /*h2是我们表单的名字*/*/ -->
+            <h2>Pet Foster Registration</h2>  <!--/*h2是我们表单的名字*/ -->
+            <form class="registration-form" action="/register" method="POST"><!--/*这是我们的表单,表单由下面的很多div块（表单项）组成*/ -->
+                <div class="form-group">
+                    <label for="name"> Name (Required) </label>
+                    <input type="text" id="name" name="name" class="form-input" required> 
+                </div>
+    
+                <div class="form-group">
+                    <label for="email"> Email (Required) </label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="street"> Street Address (Required) </label>
+                    <input type="text" id="street" name="street" class="form-input" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="zip"> Zip/Postal Code (Required) </label>
+                    <input type="text" id="zip" name="zip" class="form-input" required>
+                </div>
+
+                <div class="phone-set">
+                    <div class="form-group phone-group">
+                        <label for="phone"> Phone Number (Required) </label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+        
+                    <div class="form-group phone-group">
+                        <label for="phone-type"> Phone Type </label>
+                        <select id="phone-type" name="phone-type" class="form-input">
+                            <option value="mobile">Mobile</option>
+                            <option value="home">Home</option>
+                            <option value="work">Work</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="pet-choice"> Do you want to foster Mimi (Cat) or Pupu (Dog)? (Required) </label>
+                    <select id="pet-choice" name="pet-choice" class="form-input" required>
+                        <option value="">Please select</option>
+                        <option value="mimi">Cat - Mimi</option>
+                        <option value="pupu">Dog - Pupu</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="pet-time"> How many hours per day can you spend with your pet? (Required) </label>
+                    <select id="pet-time" name="pet-time" class="form-input" required>
+                        <option value="">Please select</option>
+                        <option value="less2">Less than 2 hours (Not recommended for fostering)</option>
+                        <option value="2-3">2 - 3 hours</option>
+                        <option value="3-6">3 - 6 hours</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="roommate"> Spouse/Roommate to put on record (Optional) </label>
+                    <input type="text" id="roommate" name="roommate" class="form-input">
+                </div>
+    
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="responsibility" class="checkbox-input" required checked>
+                        <span>I confirm that I am an adult, patient, and financially capable of fostering a pet. (Required)</span>
+                    </label>
+                </div>
+    
+                <button type="submit" class="submit-button">
+                    <img src="pets_logo.png"  class="button-icon">
+                    <span>submit</span>
+                </button>
+            </form>
+        </div>
+    </main>
+    
+
+    <footer>
+        <ul class="footer-links">
+            <li> <a href="https://foha.org/privacy-policy/">Contact Us</a></li>
+            <li> <a href="https://foha.org/privacy-policy/">Privacy Policy</a></li>
+            <li> <a href="https://foha.org/privacy-policy/">SiteMap</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

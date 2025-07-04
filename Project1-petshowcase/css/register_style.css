@@ -1,0 +1,429 @@
+* {
+    box-sizing: border-box;
+    padding:0 ;
+    margin: 0;
+    
+    font-size: 1rem; /* 默认浏览器字体大小 */ /*便于h2根据根据根元素 <html> 的 font-size 变化而变化。*/
+}
+
+body {
+    width: 100%;  /* ✅ 让 body 的 grid 宽度始终匹配 viewport */
+    min-height: 100vh;  /* ✅ 让 body 至少填满屏幕高度 */
+   
+    margin: 0 auto; /* ✅ 让 body 在大屏幕居中 */
+    padding: 0;
+    gap: 10px; /* ✅ 让网格中的内容不会贴在一起 */
+
+    line-height: 1.5;
+    font-family:"HelveticaNeueCyr-Roman", sans-serif;
+    font-size: 1rem;
+
+    background-color: #f6d1d8;
+    
+}
+/* header */
+.header {
+    grid-column: span 12;
+    text-align: center;
+}
+
+/* 桌面端布局 */
+.header-info {
+    display: flex;
+    align-items: center;  /* ✅ 让 logo 和标题垂直居中 */
+    justify-content: center; /* ✅ 让整体内容水平居中 */
+    
+    border: 6px solid #444;
+    border-radius: 12px;
+    background-color: #323232;
+    padding: 10px;
+
+    max-width: 100%; /* ✅ 避免超出 grid */
+    box-sizing: border-box; /* ✅ 确保 padding 不会增加额外宽度 */
+    text-align: left;
+    align-items: center; /* ✅ 垂直居中内容 */
+    justify-content: center; /* ✅ 水平居中 */
+    gap: 15px; /* ✅ 控制 logo 和 h1 的间距 */
+    
+}
+
+
+.logo-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo-container img, .logo-container span {
+    grid-column: span 12;
+    justify-self: center;
+}
+
+.logo-container span {
+    font-size: 1rem;
+    color: #d1c97d;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.logo-container:hover span {
+    text-decoration: underline;
+}
+
+.header-info h1 {
+
+     font-size: 6rem; 
+     max-width: 90%;
+     /*2rem ：最小字体大小，确保在超小屏幕（如 360px）不会太大导致溢出。
+    5vw ：视口宽度的 5%，根据屏幕大小动态调整。
+    6rem ：最大字体大小，防止在超大屏幕上变得过大。 */
+
+    color: #f0e2b1;
+
+}
+
+.header-info img {
+    border:10px solid #fcfcaf;
+   
+    border-radius: 50%;
+
+    width: 100px;
+    height: 100px;
+}
+
+/* nav public*/  
+.nav {
+    grid-column: span 12;
+
+    width: 100%;
+
+    padding: 0.5rem;
+    margin: 0 auto;
+
+    text-align: center;
+    background: #f0e2b1;
+}
+ /* 🌟 使用 12 列网格系统布局 */                        /* 🌟 【Flexbox 方案】 */
+ .menu {
+    display: grid;                                      /* display: flex;*/              
+    grid-template-columns: repeat(12, 1fr);             /* justify-content: space-around;*/  
+    gap: 1rem;                                          /* gap: 2rem;*/  
+    list-style: none;
+}
+
+/* 🌟 每个菜单项占据 6 列（桌面端） */                  /* 🌟 【Flexbox 方案】 这步不写效果也差不多*/   
+  .menu-option {
+    grid-column: span 6;                              /* flex: 1;*/ 
+    text-align: center;                               /*  text-align: center;*/ 
+}
+   
+
+/* 让button 看起来不像button */
+.menu-button {
+    border: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+
+    cursor: pointer;
+    outline: none; 
+
+    background-color: #555;
+    color: whitesmoke
+}
+
+/* 子菜单设计  分离基础样式和动画样式*/
+/* 基础样式 --默认隐藏*/
+.submenu {
+    font-size: 1rem;
+    padding:0 ;
+    margin: 0;
+    list-style-type: none;  
+    border-radius: 0.3rem;
+    background-color: #cbc19d;
+
+    overflow: hidden;
+}
+
+.submenu li {
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.submenu a {
+    color: #444;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background: rgba(18, 18, 12, 0.2);
+    color: #fef2c5;
+}
+
+/* 桌面端动画 */
+@media (min-width: 50rem){
+    .submenu {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10%);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    @media (prefers-reduced-motion: reduced){
+        .submenu {
+            transition:  none; 
+        }
+     }    
+
+    /* 悬停或点击展开 */
+    /*  .menu-option:focus-within .submenu*/
+    .menu-option:hover .submenu{      /* focus-within 作用于父级元素，但 .menu-button 不是 .submenu 的父级，所以得用menu-option */ 
+        max-height: 15rem;
+        transform: translateY(0);
+        opacity: 1;
+     }
+}
+
+
+/*              Main-        Form Design                                        */
+/* Main Grid Layout */
+/* 12-Column Grid Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Left Section: Foster Info Card */
+.foster-info-card {
+    grid-column: span 4;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #564C40;
+}
+
+/* Right Section: Registration Form */
+.form-container {
+    grid-column: span 8;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(231, 244, 166, 0.1);
+}
+
+/* Form Layout */
+/* 让整个表单使用 12 列网格 */
+.registration-form {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 列布局 */
+    gap: 16px;
+}
+
+/* Form Groups */
+/* 默认每个表单项占满 12 列(即1列布局） */
+.form-group {
+    grid-column: span 12; /* 每个表单项占满整行 */
+    /* display: flex;
+    flex-direction: column; */
+    display: grid; /* ✅ 使用 grid，但不再指定 columns */
+    /* 核心原因 
+    1.display: grid;  
+    ·默认情况下，Grid 容器的子元素（label 和 input）会自动分配到单独的行，除非你手动设置 grid-template-columns。
+    ·这就像 默认给每个子元素加了 display: block;，所以 <label> 自然出现在输入框上方。
+    2.没有 grid-template-columns（单列行为）
+    ·你没有在 .form-group 里定义 grid-template-columns，所以它 默认是 1 列布局（每个子元素占一整行）。
+    ·<label> 和 <input> 被 自动放在不同的行。 */
+}
+
+    /* Phone Number and Phone Type  */
+.phone-set {
+    grid-column: span 12; 
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.phone-group {
+    grid-column: span 6; /* Each input takes 6 out of 12 columns */
+}
+/*Phone  done */
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+    max-width: 100%;  /* 确保 `select` 不能比 `form-group` 大 */
+    width: 100%;       /* 让 `select` 自适应父容器 */
+
+    padding: 8px;
+    
+    font-size: 1rem;
+}
+
+/* Checkbox */
+/* 方法1：  */
+/* .checkbox-input {
+    grid-column: span 1;   让 checkbox 占 1 列 
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 2px;               让 checkbox 垂直居中 
+}
+
+.checkbox-label {
+    grid-column: span 11;     让 label 占 11 列 
+    font-size: 1rem;
+} */
+ 
+
+/* 方法2： 让 checkbox 表单项内部再设 12 列 */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 列布局 */
+    align-items: center; /* 让内容垂直居中 */
+    gap: 10px;
+    grid-column: span 12; /* 让 checkbox 组占满一整行 */
+}
+
+/* ✅ input 占 1 列（在左） */
+.checkbox-input {
+    grid-column: span 1;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0; /* 移除默认间距，保证对齐 */
+}
+
+/* ✅ label 占 11 列（在右） */
+.checkbox-label {
+    grid-column: span 11;
+    font-size: 1rem;
+}
+
+
+/* Submit Button with Icon */
+.submit-button {         /*设置button位置及其原本的初始形状*/
+    grid-column: span 12; /* 让按钮独占一行（12列） */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #fce47e;
+}
+
+.button-icon {       /* 为button准备的图标（图片）可以在这里设置图片大小）*/
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+/*                      footer                            */
+/* 让 footer 占满 12 列 */
+footer {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background-color: #323232;
+    padding: 1rem;
+}
+
+/* Footer 链接 */
+.footer-links {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+/* Footer 的 li 均分 12 列 */
+.footer-links li {
+    grid-column: span 4; /* 假设有 3 个链接 */
+}
+
+.footer-links li a {
+    color: #f0e2b1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+@media (max-width: 50rem) {
+    .header-info {
+        grid-template-columns: 1fr;  /* ✅ 只留一列，纵向排列 */
+        justify-items: center;  /* ✅ 让子元素居中 */
+        text-align: center;
+    }
+
+    /* layout */
+    .menu {                                           /* 🌟 【Flexbox 方案】 */
+                                                      /* flex-direction: column; */
+        gap:0.5rem;                                   /* align-items: stretch; */
+    }
+
+    .menu-option {
+        grid-column: span 12; /* 让每个菜单项独占 12 列 */
+        text-align: left;     /* 让子元素文本左对齐 */
+    }
+
+/* 移动端动画 */
+   /* submenu slides in/out 默认隐藏*/
+   /* 🌟 submenu 滑入/滑出 */
+    .submenu {
+        max-height: 0;
+        opacity: 0;
+        transform: translateX(-100%);  /* 默认从左侧隐藏 */
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    @media (prefers-reduced-motion: reduced) {
+        .submenu {
+            transition: none;
+        }
+    }
+
+    .menu-option:focus-within .submenu {
+        max-height: 15rem;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .header-info h1 {
+        font-size: clamp(2rem, 8vw, 4rem); /* 最小 2rem，最大 4rem，基于视口宽度调整 */
+        text-align: center; /* 确保文字居中 */
+    }
+
+    /* main - form*/
+    .container {
+        grid-template-columns: repeat(12, 1fr); /* 仍然是 12 列 */ 
+        /* grid-template-columns: 1fr; /* 变成 1 列 */
+    }
+    .foster-info-card, .form-container {
+        grid-column: span 12;   /* 让左右区域各占满一整行 */
+    }
+
+    .phone-group {
+        grid-column: span 12;
+    }
+
+    /* footer */
+    .footer-links {
+        grid-column: span 12; /* 移动端让每个 `li` 独占 12 列 */
+        text-align: center;
+    }
+}

@@ -1,0 +1,19 @@
+# Image Licenses for This Project
+
+## Personal Images
+- Filename: index.html
+  License: Personal Copyright
+- Images : 
+cats3.png   
+logo.jpg   
+
+## Other Images
+- Filename: cats.html
+  License:  Unsplash License Copyright
+  cat1.png - https://unsplash.com/photos/cat-image-id
+  cats2.jpg - https://unsplash.com/photos/cat-image-id
+  cats4.jpg - https://unsplash.com/photos/cat-image-id
+  cats5.jpg - https://unsplash.com/photos/cat-image-id
+  cats6.jpg - https://unsplash.com/photos/cat-image-id
+
+

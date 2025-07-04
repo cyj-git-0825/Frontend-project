@@ -1,0 +1,446 @@
+* {
+    box-sizing: border-box;
+    padding:0 ;
+    margin: 0;
+    
+    font-size: 1rem; /* 默认浏览器字体大小 */ /*便于h2根据根据根元素 <html> 的 font-size 变化而变化。*/
+}
+
+body {
+    width: 100%;  /* ✅ 让 body 的 grid 宽度始终匹配 viewport */
+    min-height: 100vh;  /* ✅ 让 body 至少填满屏幕高度 */
+   
+    margin: 0 auto; /* ✅ 让 body 在大屏幕居中 */
+    padding: 0;
+
+    line-height: 1.5;
+    font-family:"HelveticaNeueCyr-Roman", sans-serif;
+    font-size: 1rem;
+
+    background-color: #f6d1d8;
+    
+}
+
+/* header */
+.header {
+    text-align: center;
+}
+
+/* 桌面端布局 */
+.header-info {
+    display: flex;                                 
+    align-items: center;  /* ✅ 让 logo 和标题在容器内垂直居中 （这俩虽然并排排列但在垂直方向上位于容器中点 */
+    justify-content: center; /* ✅ 让整体内容水平居中 */
+    
+    border: 6px solid #444;
+    border-radius: 12px;
+    background-color: #323232;
+    padding: 10px;
+
+    max-width: 100%; /* ✅ 避免超出 grid */
+    box-sizing: border-box; /* ✅ 确保 padding 不会增加额外宽度 */
+    text-align: left;
+    align-items: center; /* ✅ 垂直居中内容 */
+    justify-content: center; /* ✅ 水平居中 */
+    gap: 15px; /* ✅ 控制 logo 和 h1 的间距 */
+    
+}
+
+.logo-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo-container img, .logo-container span {
+    grid-column: span 12;
+    justify-self: center;
+}
+
+.logo-container span {
+    font-size: 1rem;
+    color: #d1c97d;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.logo-container:hover span {
+    text-decoration: underline;
+}
+
+.header-info h1 {
+
+     font-size: 6rem; 
+     max-width: 90%;
+     /*2rem ：最小字体大小，确保在超小屏幕（如 360px）不会太大导致溢出。
+    5vw ：视口宽度的 5%，根据屏幕大小动态调整。
+    6rem ：最大字体大小，防止在超大屏幕上变得过大。 */
+
+    color: #f0e2b1;
+
+}
+
+.header-info img {
+    border:10px solid #fcfcaf;
+   
+    border-radius: 50%;
+
+    width: 100px;
+    height: 100px;
+}
+/* nav public*/  
+.nav {
+    grid-column: span 12;
+
+    width: 100%;
+
+    padding: 0.5rem;
+    margin: 0 auto;
+
+    text-align: center;
+    background: #f0e2b1;
+}
+
+
+ /* 🌟 使用 12 列网格系统布局 */                        /* 🌟 【Flexbox 方案】 */
+ .menu {
+    display: grid;                                      /* display: flex;*/              
+    grid-template-columns: repeat(12, 1fr);             /* justify-content: space-around;*/  
+    gap: 1rem;                                          /* gap: 2rem;*/  
+    list-style: none;
+}
+
+/* 🌟 每个菜单项占据 6 列（桌面端） */                  /* 🌟 【Flexbox 方案】 这步不写效果也差不多*/   
+  .menu-option {
+    grid-column: span 6;                              /* flex: 1;*/ 
+    text-align: center;                               /*  text-align: center;*/ 
+}
+   
+
+/* 让button 看起来不像button */
+.menu-button {
+    border: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 1rem;
+
+    cursor: pointer;
+    outline: none; 
+
+    background-color: #555;
+    color: whitesmoke
+}
+
+/* 子菜单设计  分离基础样式和动画样式*/
+/* 基础样式 --默认隐藏*/
+.submenu {
+    font-size: 1rem;
+    padding:0 ;
+    margin: 0;
+    list-style-type: none;  
+    border-radius: 0.3rem;
+    background-color: #cbc19d;
+
+    overflow: hidden;
+}
+
+.submenu li {
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.submenu a {
+    color: #444;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background: rgba(18, 18, 12, 0.2);
+    color: #fef2c5;
+}
+
+
+/* 桌面端动画 */
+@media (min-width: 50rem){
+    .submenu {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10%);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    @media (prefers-reduced-motion: reduced){
+        .submenu {
+            transition:  none; 
+        }
+     }    
+
+    /* 悬停或点击展开 */
+    /* .menu-option:focus-within .submenu*/
+    .menu-option:hover .submenu{      /* focus-within 作用于父级元素，但 .menu-button 不是 .submenu 的父级，所以得用menu-option */ 
+        max-height: 15rem;
+        transform: translateY(0);
+        opacity: 1;
+     }
+}
+
+/* main */
+.main-wrapper {
+    display: grid;
+    width: 95%;
+    margin:0 auto;
+}
+
+.header,
+.nav,
+.footer {
+    grid-column: span 12; /* ✅ 确保 header、nav、footer 充满 12 列 */
+    width: 100%;  /* ✅ 避免 width 受限 */
+}
+
+
+/* Card */
+/* 设置卡片的网格布局 */
+/* cards1: 3 张卡片，每张占 4 列 */
+h2 {
+    font-size: 1.5rem;
+    text-align: center; /* 水平居中 */
+    font-weight: bolder;
+    color: #8f7804;
+
+}
+
+
+.card {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto; /* 控制卡片内部 4 行布局 *//* 图片 | 标题 | 撑开内容 | 按钮 */
+    gap: 0.5rem; /* 行间距 */
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+
+    height: 100%;  /* 让所有卡片高度一致 */
+    
+}
+
+/* 图片：第一行 */
+.card-img {
+    width: 100%;
+    max-width: 265px;
+    height: 235px;
+    border-radius: 10px;
+    justify-self: center; /* 让图片在水平方向居中 */
+}
+
+/* 标题：第二行 */
+.card-h3 {
+    font-size: 1.2rem;
+    text-align: center; /* 标题居中 */
+    margin: 0;
+}
+
+/* 文本（自动撑开可用空间）：第三行 */
+.card-p {
+    margin: 0;
+    /* overflow: hidden; 防止超出 */
+    text-align: center; /* 文本居中 */
+}
+
+/* 按钮（固定底部）：第四行 */
+.card-button {
+    padding: 0.55rem 1rem;
+    border: none;
+    border-radius: 0.35rem;
+ 
+    text-decoration: none;
+    text-align: center;
+    
+    align-self: end; /* 让按钮始终贴底 */
+    justify-self: center; /* 按钮居中 */
+}
+
+/*  */
+
+.cards-blog1, .cards-blog2 {
+    grid-column: span 12;
+}
+
+.cards1 {
+    grid-column: span 12; /* 第一组 3 个卡片占据 8 列 */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+.cards1 .card {
+    grid-column: span 4; /* 3 张卡片，每张占 4 列 */
+    background: #fcf8df;;
+}
+
+.cards1 .card-img {
+    border:8px solid #f0e2b1;
+}
+
+.cards1 .card-button {
+    border-radius: 0.35rem;
+    font-weight: bold; /* 让文本加粗 */
+    background-color: #564C40;
+    color: #fff9D0;
+}
+
+/* cards2: 4 张卡片，每张占 3 列 */
+.cards2 {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.cards2 .card {
+    grid-column: span 3; /* 4 张卡片，每张占 3 列 */
+    background: #fad796;
+}
+
+.cards2 .card-img {
+    border:8px solid #d2c270;
+}
+
+.cards2 .card-p {
+    color: #3d2d1b;
+    font-size: 1rem;
+}
+
+.cards2 .card-button {
+    padding: 0.55rem 1rem;
+    border: none;
+    font-weight: bold; /* 让文本加粗 */
+    border-radius: 0.35rem;
+    background-color: #fff9D0;
+    color: #564C40;;
+    text-decoration: none;
+    align-self: end; /* 让按钮永远贴着底部 */
+}
+
+
+/* 让 footer 占满 12 列 */
+footer {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    
+    background-color: #323232;
+    padding: 1rem;
+}
+
+/* Footer 链接 */
+.footer-links {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+/* Footer 的 li 均分 12 列 */
+.footer-links li {
+    grid-column: span 4; /* 假设有 3 个链接 */
+}
+
+.footer-links li a {
+    color: #f0e2b1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+
+
+@media (max-width: 50rem) {
+    .header-info {
+        grid-template-columns: 1fr;  /* ✅ 只留一列，纵向排列 */
+        justify-items: center;  /* ✅ 让子元素居中 */
+        text-align: center;
+    }
+
+    /* layout */
+    .menu {                                           /* 🌟 【Flexbox 方案】 */
+                                                      /* flex-direction: column; */
+        gap:0.5rem;                                   /* align-items: stretch; */
+    }
+
+    .menu-option {
+        grid-column: span 12; /* 让每个菜单项独占 12 列 */
+        text-align: left;     /* 让子元素文本左对齐 */
+    }
+
+/* 移动端动画 */
+   /* submenu slides in/out 默认隐藏*/
+   /* 🌟 submenu 滑入/滑出 */
+    .submenu {
+        max-height: 0;
+        opacity: 0;
+        transform: translateX(-100%);  /* 默认从左侧隐藏 */
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    @media (prefers-reduced-motion: reduced) {
+        .submenu {
+            transition: none;
+        }
+    }
+
+    .menu-option:focus-within .submenu {
+        max-height: 15rem;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    
+   /* cards */
+
+   /* 让网格元素在小屏幕独占 12 列，防止挤在一起
+   .menu-option, .cards1 .card, .cards2 .card, .footer-links li {
+    grid-column: span 12;
+    }
+
+    .cards1, .cards2 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+    } */
+    .header-info h1 {
+        font-size: clamp(2rem, 8vw, 4rem); /* 最小 2rem，最大 4rem，基于视口宽度调整 */
+        text-align: center; /* 确保文字居中 */
+    }
+
+    h2 {
+    font-size: 1.3rem;
+    }
+
+    h3 {
+    font-size: 1rem;
+    }
+
+   .cards1 .card, .cards2 .card {
+    grid-column: span 12; /* 在小屏幕时，每个卡片独占 12 列 */
+    }
+
+    .card-button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    
+               
+    /* footer */
+    .footer-links {
+        grid-column: span 12; /* 移动端让每个 `li` 独占 12 列 */
+        text-align: center;
+    }
+}
